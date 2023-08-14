@@ -1,10 +1,12 @@
-const { createProxyMiddleware } = require('http-proxy-middleware')
+const { createProxyMiddleware } = require("http-proxy-middleware");
+
+console.log(process.env);
 module.exports = function (app) {
   app.use(
-    '/api',
+    "/api",
     createProxyMiddleware({
-      target: 'https://newyearletter.site:8080/',
+      target: process.env.REACT_APP_API_URL,
       changeOrigin: true,
     })
-  )
-}
+  );
+};

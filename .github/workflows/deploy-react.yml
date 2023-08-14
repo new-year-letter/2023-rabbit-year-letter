@@ -40,6 +40,10 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    
+    - name: Browse Secret Keys to use Node.js eniv
+      run: |
+        echo "REACT_APP_API_KEY=${{ secrets.AWS_EC2_URL }}" >> .env
         
     - name: Install Dependencis
       run: npm install
@@ -50,7 +54,7 @@ jobs:
     # react 빌드한 /build를 s3로 업로드
     - name: Synchronize /build to S3
       env:
-        BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME}}
+        BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}
         REGION: ${{ secrets.AWS_REGION }}
       run: |
         aws s3 sync --region $REGION build s3://$BUCKET_NAME --delete
