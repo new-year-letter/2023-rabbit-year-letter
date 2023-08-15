@@ -1,6 +1,5 @@
 const { createProxyMiddleware } = require("http-proxy-middleware");
 
-console.log(process.env);
 module.exports = function (app) {
   app.use(
     "/api",
@@ -9,4 +8,6 @@ module.exports = function (app) {
       changeOrigin: true,
     })
   );
+
+  console.log(`Proxy has been setted up with ${process.env.REACT_APP_API_URL}`);
 };
