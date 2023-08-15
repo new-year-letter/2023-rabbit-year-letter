@@ -14,7 +14,6 @@ import ReadLetter from "./pages/ReadLetter";
 import Custom from "./pages/Custom";
 
 function App() {
-  alert(process.env.REACT_APP_API_URL);
   function setScreenSize() {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
