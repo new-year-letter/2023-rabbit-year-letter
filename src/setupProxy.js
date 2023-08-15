@@ -8,6 +8,4 @@ module.exports = function (app) {
       changeOrigin: true,
     })
   );
-
-  console.log(`Proxy has been setted up with ${process.env.REACT_APP_API_URL}`);
 };
