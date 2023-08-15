@@ -44,7 +44,7 @@ jobs:
     # Build React Project
     - name: Browse Secret Keys for using in Node.js
       run: |
-        echo "REACT_APP_API_KEY=${{ secrets.AWS_EC2_URL }}" >> .env
+        echo "REACT_APP_API_URL=${{ secrets.AWS_EC2_URL }}" >> .env
         
     - name: Install Dependencis
       run: npm install
