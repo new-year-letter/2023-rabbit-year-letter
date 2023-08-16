@@ -5,7 +5,6 @@ import Main from "./pages/Main";
 import Login from "./pages/Login";
 import CreateAccount from "./pages/CreateAccount";
 import MyPage from "./pages/MyPage";
-import TestCustomizing from "./pages/TestCustomizing";
 import React from "react";
 import LetterBox from "./pages/LetterBox";
 import InviteLetter from "./pages/InviteLetter";
@@ -34,7 +33,6 @@ function App() {
         <Route path="/letter/:uuid" element={<InviteLetter />} />
         <Route path="/letter/:uuid/send" element={<SendLetter />} />
         <Route path="/custom" element={<Custom />} />
-        <Route path="/TestCustomizing" element={<TestCustomizing />} />
       </Routes>
     </BrowserRouter>
   );

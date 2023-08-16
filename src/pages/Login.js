@@ -42,8 +42,6 @@ function Login() {
         password: password,
       });
 
-      console.log(`POST: ${process.env.REACT_APP_API_URL}`);
-      console.log(`RES: ${JSON.stringify(res)}`);
       switch (res.status) {
         case 200:
           alert("로그인에 성공했습니다.");
