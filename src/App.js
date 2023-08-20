@@ -24,6 +24,7 @@ function App() {
 
   // set base url as Backend API Server.
   axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+  axios.defaults.withCredentials = true; // withCredentials 전역 설정
 
   return (
     <BrowserRouter>
