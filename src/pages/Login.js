@@ -37,7 +37,7 @@ function Login() {
 
   const attemptLogin = async (userID, password) => {
     try {
-      const res = await axios.post("/api/users/login", {
+      const res = await axios.post("/users/login", {
         userID: userID,
         password: password,
       });

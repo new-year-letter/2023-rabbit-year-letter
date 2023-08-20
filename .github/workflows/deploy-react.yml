@@ -58,7 +58,7 @@ jobs:
         BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}
         REGION: ${{ secrets.AWS_REGION }}
       run: |
-        aws s3 sync --region $REGION build s3://$BUCKET_NAME --delete
+        aws s3 sync --region $REGION build s3://$BUCKET_NAME --delete --size-only
     
     - name: Invalidate CloudFront Cache 
       env:

@@ -11,6 +11,7 @@ import InviteLetter from "./pages/InviteLetter";
 import SendLetter from "./pages/SendLetter";
 import ReadLetter from "./pages/ReadLetter";
 import Custom from "./pages/Custom";
+import axios from "axios";
 
 function App() {
   function setScreenSize() {
@@ -20,6 +21,9 @@ function App() {
   React.useEffect(() => {
     setScreenSize();
   });
+
+  // set base url as Backend API Server.
+  axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
   return (
     <BrowserRouter>
