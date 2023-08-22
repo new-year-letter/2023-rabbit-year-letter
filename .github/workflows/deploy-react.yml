@@ -11,12 +11,10 @@ on:
 
 jobs:
   
-  deploy:
-    name: Upload to Amazon S3
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
         node-version: [20.x]
         
     # These permissions are needed to interact with GitHub's OIDC Token endpoint.
@@ -25,15 +23,9 @@ jobs:
       contents: read
       
     steps:
-    # Preparing the groundwork for deployment
+    # 1. Preparing the groundwork for deployment
     - name: Checkout
       uses: actions/checkout@v3
-      
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v2
-      with:
-        role-to-assume: ${{ secrets.AWS_ROLE_ARN }} 
-        aws-region: ${{ secrets.AWS_REGION }} 
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
@@ -41,18 +33,38 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     
-    # Build React Project
+    # 2. Install or browse dependency for building
+    - name: Cache node modules
+      id: node-cache
+      uses: actions/cache@v2
+      env:
+        cache-name: cache-node-modules
+      with:
+        # npm cache files are stored in `~/.npm` on Linux/macOS
+        path: node_modules
+        key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-modules-
+    
     - name: Browse Secret Keys for using in Node.js
       run: |
         echo "REACT_APP_API_URL=${{ secrets.AWS_EC2_URL }}" >> .env
         
     - name: Install Dependencis
+      if: steps.node-cache.outputs.cache-hit != 'true'
       run: npm install
 
+    # 3. Build React Project
     - name: Build project
       run: CI=false npm run build --if-present
-
-    # Upload and deploy React Project.
+      
+    # 4. Upload and deploy to AWS Cloud
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        role-to-assume: ${{ secrets.AWS_ROLE_ARN }} 
+        aws-region: ${{ secrets.AWS_REGION }} 
+    
     - name: Synchronize /build to S3
       env:
         BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}
