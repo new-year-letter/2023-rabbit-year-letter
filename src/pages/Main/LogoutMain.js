@@ -1,15 +1,16 @@
-import { useNavigate } from 'react-router'
-import styled from 'styled-components'
-import ButtonItem from '../../components/ButtonItem'
-import Container from '../../components/Container'
-import Logo from '../../components/Logo'
-import { SubTitle, Wrapper } from '../Main'
-import Rabbit from '../../assets/images/main.png'
-import React from 'react'
-import { Copyright } from './LoginMain'
+import { useNavigate } from "react-router";
+import styled from "styled-components";
+import ButtonItem from "../../components/ButtonItem";
+import Container from "../../components/container/Container";
+import Logo from "../../components/Logo";
+import { Wrapper } from "../../components/Wrapper";
+import { SubTitle } from "../../components/Content";
+import Rabbit from "../../assets/images/main.png";
+import React from "react";
+import { Copyright } from "./LoginMain";
 
 function LogoutMain() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <Container>
@@ -21,10 +22,10 @@ function LogoutMain() {
         <RabbitContainer src={Rabbit} />
         <Wrapper gap={1.5}>
           <Wrapper>
-            <ButtonItem onClick={() => navigate('/login')}>로그인</ButtonItem>
+            <ButtonItem onClick={() => navigate("/login")}>로그인</ButtonItem>
             <ButtonItem
               background="--pink-100"
-              onClick={() => navigate('/sign-up')}
+              onClick={() => navigate("/sign-up")}
             >
               회원가입
             </ButtonItem>
@@ -36,12 +37,12 @@ function LogoutMain() {
         </Wrapper>
       </Wrapper>
     </Container>
-  )
+  );
 }
 
 const RabbitContainer = styled.img`
   width: 70%;
   object-fit: cover;
-`
+`;
 
-export default LogoutMain
+export default LogoutMain;

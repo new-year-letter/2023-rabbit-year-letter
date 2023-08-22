@@ -14,6 +14,7 @@ import InviteLetter from "./pages/InviteLetter";
 import SendLetter from "./pages/SendLetter";
 import ReadLetter from "./pages/ReadLetter";
 import Custom from "./pages/Custom";
+import { NotFoundPage } from "./pages/Error";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
             element: <SendLetter />,
           },
         ],
+      },
+      {
+        path: "/*",
+        element: <NotFoundPage />,
       },
     ],
   },

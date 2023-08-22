@@ -1,12 +1,12 @@
 import React, { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../components/Logo";
-import Container from "../components/Container";
+import Container from "../components/container/Container";
 import ButtonItem from "../components/ButtonItem";
 import MoneyInfo from "./Letterbox/MoneyInfo";
 import Letter from "./Letterbox/Letter";
 import styled from "styled-components";
-import { Wrapper } from "./Main";
+import { Wrapper } from "../components/Wrapper";
 import SmallButtonItem from "../components/SmallButtonItem";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";

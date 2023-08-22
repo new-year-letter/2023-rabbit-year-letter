@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Logo from "../components/Logo";
-import Container from "../components/Container";
+import Container from "../components/container/Container";
 import ButtonItem from "../components/ButtonItem";
 import LetterInfoLabel from "./LetterDetail/FromLabel";
 import Letter from "../components/Letter";

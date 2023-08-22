@@ -1,16 +1,16 @@
-import { SmallText } from '../InviteLetter'
-import { Wrapper } from '../Main'
-import Money50000 from '../../assets/images/money-50000.png'
-import Money10000 from '../../assets/images/money-10000.png'
-import Money5000 from '../../assets/images/money-5000.png'
-import Money1000 from '../../assets/images/money-1000.png'
-import styled from 'styled-components'
-import Letter from '../../components/Letter'
-import { Input } from '../Login'
-import ButtonItem from '../../components/ButtonItem'
-import Logo from '../../components/Logo'
+import { SmallText } from "../InviteLetter";
+import { Wrapper } from "../../components/Wrapper";
+import Money50000 from "../../assets/images/money-50000.png";
+import Money10000 from "../../assets/images/money-10000.png";
+import Money5000 from "../../assets/images/money-5000.png";
+import Money1000 from "../../assets/images/money-1000.png";
+import styled from "styled-components";
+import Letter from "../../components/Letter";
+import { Input } from "../Login";
+import ButtonItem from "../../components/ButtonItem";
+import Logo from "../../components/Logo";
 
-import MoneyButton from '../../components/MoneyButton'
+import MoneyButton from "../../components/MoneyButton";
 
 function SendContent({
   nickName,
@@ -53,8 +53,8 @@ function SendContent({
 
       <SmallInput
         placeholder="보내시는 분의 이름을 적어주세요"
-        onChange={event => {
-          setAuthor(event.target.value)
+        onChange={(event) => {
+          setAuthor(event.target.value);
         }}
       />
 
@@ -64,7 +64,7 @@ function SendContent({
 
       <ButtonItem onClick={() => onClick()}>보내기</ButtonItem>
     </>
-  )
+  );
 }
 
 export const SmallInput = styled(Input)`
@@ -75,7 +75,7 @@ export const SmallInput = styled(Input)`
   font-size: max(0.8rem, 14px);
   borderRadius: 9999px
   filter: none;
-`
+`;
 
 const MoneyWrapper = styled.div`
   display: grid;
@@ -84,5 +84,5 @@ const MoneyWrapper = styled.div`
   > div {
     position: relative;
   }
-`
-export default SendContent
+`;
+export default SendContent;

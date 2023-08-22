@@ -1,4 +1,4 @@
-import Container from "../components/Container";
+import Container from "../components/container/Container";
 import Logo from "../components/Logo";
 import React from "react";
 import { useLocation, useParams } from "react-router-dom";

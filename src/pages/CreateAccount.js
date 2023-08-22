@@ -3,8 +3,8 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import ButtonItem from "../components/ButtonItem";
-import { SubTitle, Wrapper } from "./Main";
-
+import { Wrapper } from "../components/Wrapper";
+import { SubTitle } from "../components/Content";
 import { BottomText, Input } from "./Login";
 import { useDispatch } from "react-redux";
 import { login } from "../utils/reducers/loginState";
@@ -12,7 +12,7 @@ import { login } from "../utils/reducers/loginState";
 import axios from "axios";
 import Logo from "../components/Logo";
 import LinkItem from "../components/LinkItem";
-import Container from "../components/Container";
+import Container from "../components/container/Container";
 import { ResponseError } from "../utils/error";
 import setMetaTags from "../utils/meta";
 import { SITE_NAME } from "../utils/constant";

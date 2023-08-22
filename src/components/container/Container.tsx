@@ -1,9 +1,18 @@
-import { useSelector } from 'react-redux'
-import styled from 'styled-components'
-import { BACKGROUND_OPTION } from '../utils/constant'
+import { useSelector } from "react-redux";
+import styled from "styled-components";
+import { BACKGROUND_OPTION } from "../../utils/constant";
+import React from "react";
 
-function Container({ customBg, children }) {
-  const { background } = useSelector(state => state.infoState)
+type ContainerProps = {
+  customBg?: number;
+  children?: React.ReactNode;
+};
+
+function Container({ customBg, children }: ContainerProps) {
+  const { background } = useSelector(
+    (state: { infoState: { background: number } }) => state.infoState
+  );
+
   return (
     <BackgroundContainer>
       <Content
@@ -18,7 +27,7 @@ function Container({ customBg, children }) {
         {children}
       </Content>
     </BackgroundContainer>
-  )
+  );
 }
 
 const BackgroundContainer = styled.div`
@@ -31,9 +40,9 @@ const BackgroundContainer = styled.div`
   max-width: 100vw;
   min-height: 100vh;
   height: auto;
-`
+`;
 
-const Content = styled.div`
+const Content = styled.div<{ background: string }>`
   min-width: 380px;
   max-width: 500px;
   min-height: 100vh;
@@ -64,5 +73,5 @@ const Content = styled.div`
     width: 100%;
     padding: 54px 27px;
   }
-`
-export default Container
+`;
+export default Container;

@@ -6,12 +6,12 @@ import { useDispatch } from "react-redux";
 
 import LinkItem from "../components/LinkItem";
 import ButtonItem from "../components/ButtonItem";
-import { Wrapper } from "./Main";
+import { Wrapper } from "../components/Wrapper";
 import { login } from "../utils/reducers/loginState";
 
 import axios from "axios";
 import Logo from "../components/Logo";
-import Container from "../components/Container";
+import Container from "../components/container/Container";
 import { ResponseError } from "../utils/error";
 import setMetaTags from "../utils/meta";
 import { SITE_NAME } from "../utils/constant";

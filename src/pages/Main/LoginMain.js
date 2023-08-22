@@ -2,13 +2,13 @@ import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, setState } from "../../utils/reducers/loginState";
 
-import { Wrapper } from "../Main";
+import { Wrapper } from "../../components/Wrapper";
 
 import Logo from "../../components/Logo";
 import MaterialIcon from "../../components/MaterialIcon";
 import Promise from "../../components/Promise";
 import SmallButtonItem from "../../components/SmallButtonItem";
-import Container from "../../components/Container";
+import Container from "../../components/container/Container";
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import axios from "axios";
@@ -18,8 +18,8 @@ import { setInfo } from "../../utils/reducers/infoState";
 import MyRabbit from "../../components/MyRabbit";
 import { useLocation } from "react-router-dom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import HelpModal, { Content, SmallContent } from "../../components/HelpModal";
-import ExpireModal from "../../components/ExpireModal";
+import { Content } from "../../components/Content";
+import ExpireModal from "../../components/modal/ExpireModal";
 import { freeLoading, setLoading } from "../../utils/reducers/loadingState";
 import Loading from "../../components/Loading";
 

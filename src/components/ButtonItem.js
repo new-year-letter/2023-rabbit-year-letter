@@ -1,18 +1,18 @@
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
+import styled from "styled-components";
+import PropTypes from "prop-types";
 
-function ButtonItem({ background = '--pink-200', onClick, children }) {
+function ButtonItem({ background = "--pink-200", onClick, children }) {
   return (
     <Container background={background} onClick={onClick}>
       {children}
     </Container>
-  )
+  );
 }
 
 ButtonItem.propTypes = {
   background: PropTypes.string,
   onClick: PropTypes.func,
-}
+};
 
 const Container = styled.div`
   position: relative;
@@ -30,10 +30,10 @@ const Container = styled.div`
   font-weight: bold;
   font-size: 18px;
 
-  background: var(${props => props.background});
+  background: var(${(props) => props.background});
   color: var(--brown);
 
   cursor: pointer;
-`
+`;
 
-export default ButtonItem
+export default ButtonItem;

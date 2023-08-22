@@ -1,6 +1,6 @@
 import React from "react";
 import ButtonItem from "../components/ButtonItem";
-import Container from "../components/Container";
+import Container from "../components/container/Container";
 import Logo from "../components/Logo";
 import Promise from "../components/Promise";
 import {
@@ -12,7 +12,7 @@ import {
   SITE_NAME,
 } from "../utils/constant";
 import { SmallText } from "./InviteLetter";
-import { Wrapper } from "./Main";
+import { Wrapper } from "../components/Wrapper";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { ResponseError } from "../utils/error";
